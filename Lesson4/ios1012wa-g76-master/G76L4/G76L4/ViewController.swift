@@ -16,7 +16,7 @@ class ViewController: UIViewController {
 //		foo(12)
 //		foo(33)
 //		sayHello(to: "Ivan")
-//		wirkWithString()
+		wirkWithString()
 //		optionalTypeExample()
 		workWithArrays()
 	}
