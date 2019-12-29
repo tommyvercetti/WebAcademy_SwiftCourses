@@ -60,11 +60,14 @@ class ViewController: UIViewController {
         //        32556reWDr - 3 a) b) c)
         
         checkPasswordSecurity(of: "asdK$3")
-  
-       
+        
+        
         //        II. Прочесть главу "Collection Types" - swift book.ru
         //        Задача 7. Сортировка массива не встроенным методом по возрастанию + удалить дубликаты
         //        [9, 1, 2, 5, 1, 7]
+        
+        arraySorting()
+        
         //
         //        Задача 8. Написать метод, который будет переводить строку в транслит.
         //        Пример:
@@ -77,9 +80,6 @@ class ViewController: UIViewController {
         //
         //        Задача 10. Set<String> - antimat [“fuck”, “fak”] “hello my fak” “hello my ***”
         //        использовать Set или NSSet для программы antimat - исключить из предложения все слова содержащиеся в сете
-        
-        
-        
         
         
     }
@@ -97,7 +97,7 @@ class ViewController: UIViewController {
     }
     
     func splitName(_ str: String) {
-        var newStrArray: [String] = []
+        var newStrArray = [String] ()
         
         for character in str {
             if String(character) == String(character).uppercased() {
@@ -122,10 +122,10 @@ class ViewController: UIViewController {
     
     func addComas(in str: String) {
         var result = ""
-
+        
         for (index, element) in str.reversed().enumerated() {
             result.insert(element, at: result.startIndex)
-
+            
             if((index + 1) % 3 == 0 && index != str.count - 1) {
                 result.insert(",", at: result.startIndex)
             }
@@ -154,8 +154,41 @@ class ViewController: UIViewController {
             securityLevel += 1
         }
         
-        print("Password sucurity have \(securityLevel) points")
+        print("Password security have \(securityLevel) points")
+    }
+    
+    func arraySorting() {
+        var arrayNumbers = [Int]()
+        
+        for _ in 0..<10 {
+            arrayNumbers.append(Int.random(in: 0...10))
+        }
+        
+        print(arrayNumbers)
+        
+        for i in 0..<arrayNumbers.count {
+            for j in 1..<arrayNumbers.count {
+                if arrayNumbers[j]<arrayNumbers[j-1] {
+                    let tempItemVar = arrayNumbers[j-1]
+                    arrayNumbers[j-1] = arrayNumbers[j]
+                    arrayNumbers[j] = tempItemVar
+                }
+            }
+        }
+        
+        print(arrayNumbers)
+        var tempArray = [Int]()
+        
+        for i in 1..<arrayNumbers.count {
+            if arrayNumbers[i] != arrayNumbers [i-1] {
+                tempArray.append(arrayNumbers[i])
+            }
+        }
+        tempArray.insert(arrayNumbers[0], at: 0)
+        arrayNumbers = tempArray
+        print(arrayNumbers)
     }
     
 }
+
 
