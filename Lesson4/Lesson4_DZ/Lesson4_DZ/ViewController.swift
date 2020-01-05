@@ -80,11 +80,22 @@ class ViewController: UIViewController {
     //        Пример:
     //        print(convertStrToTranslite:”ЯЗЗЬ”) → “YAZZ”
     //        print(convertStrToTranslite:”морДа”) → “morDa”
-    //
+    
+    translit(this: "ЯЗЬ И МОРДА")
+    delineator()
+    
     //        Задача 9. Сделать выборку из массива строк в которых содержится указанная строка
     //        [“lada”, “sedan”, “baklazhan”] search “da”
     //        → [“lada”, “sedan”] - sort() && sort using NSPredicate + manual (for loop)
     //
+    //    let dict = ["foo": "bar", "PQRS": "baz"]
+    //    let searchTerm = "S"
+    //
+    //    if let entry = dict.first(where: { (key, _) in key.contains(searchTerm) }) {
+    //        print(entry.value)
+    //    } else {
+    //        print("no match")
+    //    }
     //        Задача 10. Set<String> - antimat [“fuck”, “fak”] “hello my fak” “hello my ***”
     //        использовать Set или NSSet для программы antimat - исключить из предложения все слова содержащиеся в сете
     
@@ -199,6 +210,54 @@ class ViewController: UIViewController {
     print("Without doubles - \(arrayNumbers)")
   }
   
+  func translit(this phraze: String) {
+    let dict: [String: String] = ["А":"A",
+                                  "Б":"B",
+                                  "В":"V",
+                                  "Г":"G",
+                                  "Д":"D",
+                                  "Е":"E",
+                                  "Ё":"JO",
+                                  "Ж":"ZH",
+                                  "З":"Z",
+                                  "И":"I",
+                                  "Й":"Y",
+                                  "К":"K",
+                                  "Л":"L",
+                                  "М":"M",
+                                  "Н":"N",
+                                  "О":"O",
+                                  "П":"P",
+                                  "Р":"R",
+                                  "С":"S",
+                                  "Т":"T",
+                                  "У":"U",
+                                  "Ф":"F",
+                                  "Х":"H",
+                                  "Ц":"C",
+                                  "Ч":"CH",
+                                  "Ш":"SH",
+                                  "Щ":"SCH",
+                                  "Ъ":"'",
+                                  "Ы":"Y",
+                                  "Ь":"'",
+                                  "Э":"E",
+                                  "Ю":"YU",
+                                  "Я":"YA",]
+    let inputMessage = phraze
+    var outputMessage = ""
+    
+    for i in inputMessage {
+      let character = "\(i)"
+      
+      if let encodedChar = dict[character] {
+        outputMessage += encodedChar
+      }else {
+        outputMessage += character
+      }
+    }
+    
+    print(outputMessage)
+  }
+  
 }
-
-
