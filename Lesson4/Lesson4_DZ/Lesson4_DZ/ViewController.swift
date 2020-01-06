@@ -87,15 +87,10 @@ class ViewController: UIViewController {
     //        Задача 9. Сделать выборку из массива строк в которых содержится указанная строка
     //        [“lada”, “sedan”, “baklazhan”] search “da”
     //        → [“lada”, “sedan”] - sort() && sort using NSPredicate + manual (for loop)
-    //
-    //    let dict = ["foo": "bar", "PQRS": "baz"]
-    //    let searchTerm = "S"
-    //
-    //    if let entry = dict.first(where: { (key, _) in key.contains(searchTerm) }) {
-    //        print(entry.value)
-    //    } else {
-    //        print("no match")
-    //    }
+    
+    print(findText(in: ["lada", "sedan", "baklazhan"], searchString: "an"))
+    delineator()
+    
     //        Задача 10. Set<String> - antimat [“fuck”, “fak”] “hello my fak” “hello my ***”
     //        использовать Set или NSSet для программы antimat - исключить из предложения все слова содержащиеся в сете
     
@@ -256,8 +251,16 @@ class ViewController: UIViewController {
         outputMessage += character
       }
     }
-    
     print(outputMessage)
   }
+  
+  func findText(in arrayOf:[String], searchString:String ) -> [String] {
+    let text = arrayOf
+    let filterArray = text.filter({ $0.range(of: searchString/*, options: .caseInsensitive*/) != nil})
+    return filterArray
+  }
+  
+  
+  
   
 }
