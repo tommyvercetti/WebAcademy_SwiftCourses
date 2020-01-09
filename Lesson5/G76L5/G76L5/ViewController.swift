@@ -99,5 +99,9 @@ class ViewController: UIViewController {
 		bar += 1
 		print(bar)
 	}
+  
+  @IBAction func button2Pressed() {
+  }
+  
 }
 
