@@ -27,7 +27,7 @@ class ViewController: UIViewController {
   let milkTankCapasity = 1000
   let beansTankCapasity = 3000
   
-  //tankState
+  //tankState 
   var waterTankState = 0
   var milkTankState = 0
   var beansTankState = 0
